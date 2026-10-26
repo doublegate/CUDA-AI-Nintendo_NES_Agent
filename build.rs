@@ -222,7 +222,7 @@ fn compile_cuda_files(cuda_path: &str) {
 fn generate_bindings() {
     let bindings = bindgen::Builder::default()
         .header("include/cuda_interface.h")
-        .parse_callbacks(Box::new(bindgen::CargoCallbacks))
+        .parse_callbacks(Box::new(bindgen::CargoCallbacks::new()))
         .generate()
         .expect("Unable to generate bindings");
 
